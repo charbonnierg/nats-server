@@ -15,3 +15,5 @@ require (
 	golang.org/x/sys v0.13.0
 	golang.org/x/time v0.3.0
 )
+
+replace github.com/nats-io/jwt/v2 => github.com/charbonnierg/jwt/v2 v2.5.2-dev
