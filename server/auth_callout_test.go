@@ -347,6 +347,7 @@ func TestAuthCalloutClientTLSCerts(t *testing.T) {
 		// Zero since we are verified and will be under verified chains.
 		require_True(t, len(ctls.Certs) == 0)
 		require_True(t, len(ctls.VerifiedChains) == 1)
+		require_True(t, ctls.ServerName == "localhost")
 		// Since we have a CA.
 		require_True(t, len(ctls.VerifiedChains[0]) == 2)
 		blk, _ := pem.Decode([]byte(ctls.VerifiedChains[0][0]))
@@ -1492,6 +1493,7 @@ func TestAuthCalloutWSClientTLSCerts(t *testing.T) {
 		// Zero since we are verified and will be under verified chains.
 		require_Equal(t, len(ctls.Certs), 0)
 		require_Equal(t, len(ctls.VerifiedChains), 1)
+		require_Equal(t, ctls.ServerName, "localhost")
 		// Since we have a CA.
 		require_Equal(t, len(ctls.VerifiedChains[0]), 2)
 		blk, _ := pem.Decode([]byte(ctls.VerifiedChains[0][0]))
